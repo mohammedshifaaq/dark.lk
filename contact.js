@@ -1,52 +1,29 @@
 
-//=============loding js===================================//
+const form = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
 
-const loader = document.getElementById("loader");
-const main = document.getElementById("main-content");
-const percentText = document.getElementById("percent");
-const loadingText = document.querySelector(".loading-text");
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // prevent default reload
 
-let current = 1;
+  const formData = new FormData(form);
 
-const interval = setInterval(() => {
-  percentText.textContent = `${current}%`;
-  current++;
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
 
-  if (current > 100) {
-    clearInterval(interval);
+    if (response.ok) {
+      formMessage.textContent = 'Form sent successfully!. We will contact you soon';
+      form.reset();
+    } else {
+      formMessage.textContent = 'Oops! Something went wrong.';
+      formMessage.style.color = 'red';
+    }
 
-    // Change to success message
-    loadingText.innerHTML = " Successful ✅";
-
-    // Wait, then fade out loader
-    setTimeout(() => {
-      loader.classList.add("fade-out");
-      setTimeout(() => {
-        loader.style.display = "none";
-        main.style.display = "block";
-      }, 1000);
-    }, 1000);
+  } catch (error) {
+    formMessage.textContent = 'Oops! Something went wrong.';
+    formMessage.style.color = 'red';
   }
-}, 30); // 100ms x 100 = 10 seconds
-
-
-
-//=============================cotact navbat======================================//
-
-const menuIcon = document.getElementById("menu-icon");
-const navLinks = document.getElementById("navLinks");
-
-menuIcon.onclick = () => {
-  navLinks.classList.toggle("active");
-  menuIcon.classList.toggle("fa-xmark");
-  menuIcon.classList.toggle("fa-bars");
-};
-
-// Optional: close menu when clicking a link (mobile)
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove("active");
-    menuIcon.classList.remove("fa-xmark");
-    menuIcon.classList.add("fa-bars");
-  });
 });
