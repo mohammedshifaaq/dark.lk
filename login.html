@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="Icon" href="img/dp.jpg" type="this my icon img">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h2>Login</h2>
+            <form id="loginFormInner">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="8791d7a7-1359-405b-b563-36b3ad1be6fb">
+                <button type="submit">Login</button>
+            </form>
+
+            <!-- Google button at bottom -->
+            <button class="google-btn" onclick="window.open('https:accounts.google.com/signin','_blank')">
+                <img src="https://www.google.com/favicon.ico" alt="Google Logo"> Continue with Google
+            </button>
+
+            <div class="toggle" onclick="toggleForms()">Don't have an account? Sign Up</div>
+
+            <!-- <div id="loginSuccess">Login submitted successfully!</div> -->
+        </div>
+
+        <!-- Sign-Up Form -->
+        <div id="signupForm" class="hidden">
+            <h2>Sign Up</h2>
+            <form id="signupFormInner">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="8791d7a7-1359-405b-b563-36b3ad1be6fb">
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <!-- Google button at bottom -->
+            <button class="google-btn" onclick="window.open('https:accounts.google.com/signin','_blank')">
+                <img src="https://www.google.com/favicon.ico" alt="Google Logo"> Continue with Google
+            </button>
+
+            <div class="toggle" onclick="toggleForms()">Already have an account? Login</div>
+
+            <div id="signupSuccess">Sign-Up submitted successfully!</div>
+        </div>
+
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
