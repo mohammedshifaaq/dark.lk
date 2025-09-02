@@ -1,9 +1,8 @@
-
 const form = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
 form.addEventListener('submit', async (e) => {
-  e.preventDefault(); // prevent default reload
+  e.preventDefault(); // prevent page reload
 
   const formData = new FormData(form);
 
@@ -15,15 +14,31 @@ form.addEventListener('submit', async (e) => {
     });
 
     if (response.ok) {
-      formMessage.textContent = 'Form sent successfully!. We will contact you soon';
+      formMessage.textContent = 'Form sent successfully! We will contact you soon.';
+      formMessage.classList.remove('error');
+      formMessage.style.display = 'block';
       form.reset();
+
+      // Hide message after 2 seconds
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 2000);
+
     } else {
       formMessage.textContent = 'Oops! Something went wrong.';
-      formMessage.style.color = 'red';
+      formMessage.classList.add('error');
+      formMessage.style.display = 'block';
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 2000);
     }
 
   } catch (error) {
     formMessage.textContent = 'Oops! Something went wrong.';
-    formMessage.style.color = 'red';
+    formMessage.classList.add('error');
+    formMessage.style.display = 'block';
+    setTimeout(() => {
+      formMessage.style.display = 'none';
+    }, 2000);
   }
 });
