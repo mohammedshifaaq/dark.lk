@@ -588,10 +588,6 @@ body {
     /* optional: hide background text */
   }
 
-  .map-container.small-map {
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.08);
-  }
 
   .contact-form {
     padding: 20px;
@@ -607,11 +603,11 @@ body {
   }
 
   .contact-form input {
-    font-size: 8px;
+    font-size: 15px;
   }
 
   .contact-form textarea {
-    font-size: 8px;
+    font-size: 15px;
   }
 
   .footer-section {
@@ -680,3 +676,4 @@ body {
     text-align: left;
   } 
 }
+
