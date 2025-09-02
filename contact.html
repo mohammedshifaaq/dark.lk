@@ -70,8 +70,7 @@
     <p>Passionate about building responsive websites and powerful digital experiences.
       Open to freelance work, team collaborations, or just a friendly chat let’s connect!
     </p>
-    <form action="https://api.web3forms.com/submit" method="POST">
-
+  <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       <!-- Web3Forms Access Key -->
       <input type="hidden" name="access_key" value="8791d7a7-1359-405b-b563-36b3ad1be6fb">
 
@@ -82,10 +81,16 @@
 
       <div class="input-box">
         <input type="text" name="phone" placeholder="Mobile Number">
-        <input type="email" name="email" placeholder="Subject" required>
+        <input type="text" name="subject" placeholder="Subject" required>
       </div>
 
       <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send Message</button>
+
+      <!-- Message display -->
+      <div id="formMessage" style="margin-top:15px;color:green;font-weight:700;"></div>
+    </form>
 
       <button type="submit">Send Message</button>
     </form>
@@ -147,3 +152,4 @@
 
 
 </html>
+
